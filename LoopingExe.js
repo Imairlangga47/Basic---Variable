@@ -356,7 +356,7 @@ while (i < DataSales.length) { // Index-nya harus lebih kecil dari panjang index
 
     // Langkah kedua untuk memproses 2 dataset secara bersamaan?
     let j = 0;
-    while (j < DataCustomer.item.length) { // Mengambil data looping dalam Kriteria 2 yang memiliki Sub-Kriteria
+    while (j < DataCustomer.item.length) { // Mengambil data looping dalam Kriteria 2 yang memiliki Sub-Krite        let TipeDanQuantityProdukyangDibeli = DataCustomer.item[j];
         let TipeDanQuantityProdukyangDibeli = DataCustomer.item[j];
         let SinkronisasiDataset1danDataset2 = DataItem.find(
             ItemyangDicari => ItemyangDicari.product === TipeDanQuantityProdukyangDibeli.product

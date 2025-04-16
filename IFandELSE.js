@@ -348,7 +348,6 @@ console.log(enterkosong);
 
 
 
-
 //JAWABAN TIPE 2
 
 // Fungsi untuk melakukan perhitungan dan validasi

@@ -24,42 +24,6 @@ for (let i = 0; i < paragraphs.length; i++) {
 }
 console.log(eachWord);
 console.log(eachWord.length);
-
-
-
-  // Ver 1
-//   const flattenParagraph = [];
-  
-//   for (const paragraph of paragraphs) {
-//     for (const sentence of paragraph) {
-//       const words = sentence.split(' ');
-//       for (const word of words) {
-//         flattenParagraph.push(word);
-//       }
-//     }
-//   }
-  
-//   console.log(flattenParagraph);
-//   console.log(flattenParagraph.length);
-  
-  // Ver 2 (Spreader)
-  const wordsCompliation = [];
-  
-//   for (const paragraph of paragraphs) {
-//     for (const sentence of paragraph) {
-//       const words = sentence.split(' ');
-//       wordsCompliation.push(...words);
-//     }
-//   }
-  
-//   console.log(wordsCompliation);
-//   console.log(wordsCompliation.length);
-  
-  // Write a nested loop to flatten the paragraphs array into a single array of words and print the total word count.
-  
-  /* Expected Output:
-  Total word count: 28
-  */
   
   const salesData = [
     [120.50, 89.70, 45.60],

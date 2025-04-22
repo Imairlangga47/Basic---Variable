@@ -150,7 +150,6 @@ let Exe1 = [
     {NamaKaryawan: "Bubu", position: "Admin", salary: 5500 },
     {NamaKaryawan: "Jena", position: "Admin", salary: 4500 },
 ];
-
 // Filter Data: Gunakan metode .filter() untuk memilih karyawan yang memiliki jabatan tertentu.
 // Jumlahkan Gaji: Setelah mendapatkan data karyawan dengan jabatan yang sesuai, gunakan .reduce()
 // untuk menjumlahkan gaji mereka.
@@ -226,7 +225,6 @@ function MenghitungRerataGajiKaryawanSetiapPosition(ArrayDataKaryawan, SelectedP
 };
 
 MenghitungRerataGajiKaryawanSetiapPosition(Exe1, ["Manager", "Admin", "Developer", "Designer", "CEO"]);
-
 console.log(enterkosong);
 const Exe2 = {
     firstName: "John",

@@ -3,7 +3,7 @@ let enterkosong = '';
 const employeeDB = [
     {
       id: 1,
-      name: "Alice Johnson",
+      Nama: "Alice Johnson",
       position: "Software Engineer",
       department: "Development",
       contactInfo: {
@@ -14,7 +14,7 @@ const employeeDB = [
     },
     {
       id: 2,
-      name: "Bob Smith",
+      Nama: "Bob Smith",
       position: "Marketing Manager",
       department: "Marketing",
       contactInfo: {
@@ -25,7 +25,7 @@ const employeeDB = [
     },  
     {
       id: 3,
-      name: "Carol Martinez",
+      Nama: "Carol Martinez",
       position: "Product Designer",
       department: "Marketing",
       contactInfo: {
@@ -36,7 +36,7 @@ const employeeDB = [
     },
     {
       id: 4,
-      name: "David Brown",
+      Nama: "David Brown",
       position: "Data Analyst",
       department: "IT",
       contactInfo: {
@@ -47,7 +47,7 @@ const employeeDB = [
     },
     {
       id: 5,
-      name: "Eva Green",
+      Nama: "Eva Green",
       position: "HR Specialist",
       department: "Management",
       contactInfo: {
@@ -58,7 +58,7 @@ const employeeDB = [
     },
     {
       id: 6,
-      name: "Frank White",
+      Nama: "Frank White",
       position: "IT Support",
       department: "IT",
       contactInfo: {
@@ -69,7 +69,7 @@ const employeeDB = [
     },
     {
       id: 7,
-      name: "Grace Lee",
+      Nama: "Grace Lee",
       position: "Project Manager",
       department: "Management",
       contactInfo: {
@@ -80,7 +80,7 @@ const employeeDB = [
     },
     {
       id: 8,
-      name: "Hannah Kim",
+      Nama: "Hannah Kim",
       position: "Quality Assurance",
       department: "Management",
       contactInfo: {
@@ -91,7 +91,7 @@ const employeeDB = [
     },
     {
       id: 9,
-      name: "Ian Black",
+      Nama: "Ian Black",
       position: "Financial Analyst",
       department: "Management",
       contactInfo: {
@@ -102,7 +102,7 @@ const employeeDB = [
     },
     {
       id: 10,
-      name: "Jasmine Patel",
+      Nama: "Jasmine Patel",
       position: "Content Writer",
       department: "Marketing",
       contactInfo: {
@@ -118,7 +118,7 @@ const employeeDB = [
 
 
 function ExpectedArrayForDBSkillsByDepartement (ArrayPenampungExpectedDBEmpeloye, ExpectedDataBaseEmployee ) {
-    ArrayPenampungExpectedDBEmpeloye.push(`${ExpectedDataBaseEmployee.name} | ${ExpectedDataBaseEmployee.position} | Skill : ${ExpectedDataBaseEmployee.skills.join(', ')}`)
+    ArrayPenampungExpectedDBEmpeloye.push(`${ExpectedDataBaseEmployee.Nama} | ${ExpectedDataBaseEmployee.position} | Skill : ${ExpectedDataBaseEmployee.skills.join(', ')}`)
 };
 
 
@@ -172,26 +172,27 @@ function MenampilakanDatabaseSkillsByDepartement (NamaDepartement, ArrayPenampun
     };
 };
 
-function SelectedSkills(SkillName, DatabaseSkills) {
-    for (let j = 0; j < employeeDB.length; j++) {
-        const employeeDBLoop = employeeDB[j];
-        
-    }
-    if (SkillName === DatabaseSkills.skills.includes(SkillName)) {
-        EmployeeSelectedSkillsArray.push(`${SkillName} :`);
-        DatabaseSkills.forEach(DBEmployeeLoop => {
-            EmployeeSelectedSkillsArray.push(`- ${DBEmployeeLoop.name}`)
-        });
-        EmployeeSelectedSkillsArray.push("")
-    };
+// Quiz 3
+function SelectedSkills(SkillNama, DatabaseSkills) {
+  const skillNamaLower = SkillNama.toLowerCase(); // Untuk membandingkan tanpa memperhatikan kapitalisasi
+  const skillsLower = DatabaseSkills.skills.map(skill => skill.toLowerCase()); // Membuat seluruh array menjadi lowercase
+
+  if (skillsLower.includes(skillNamaLower)) {
+      EmployeeSelectedSkillsArray.push(`${SkillNama} :`);
+      EmployeeSelectedSkillsArray.push(`- ${DatabaseSkills.Nama}`);
+  }
+  EmployeeSelectedSkillsArray.push("");
 };
 
 
-SelectedSkills('JavaScript',employeeDBLoop);
-SelectedSkills('Networking', employeeDB);
-
-// ?????????????
-
+for (let x = 0; x < employeeDB.length; x++) {
+  const employeeDBLoop = employeeDB[x];
+  
+  SelectedSkills('JavaScript', employeeDBLoop);
+  SelectedSkills('Networking', employeeDBLoop);
+  SelectedSkills('Excel', employeeDBLoop);
+  SelectedSkills("Content Marketing", employeeDBLoop);
+};
 
 // Quiz 2
 MenampilakanDatabaseSkillsByDepartement('Development', EmployeeSkillsByDepartementDevelopment);
@@ -200,6 +201,61 @@ MenampilakanDatabaseSkillsByDepartement('IT', EmployeeSkillByDepartementIT);
 MenampilakanDatabaseSkillsByDepartement('Management', EmployeeSkillsByDepartementManagement);
 
 // Quiz 3
+
+
+// Quiz 4: How many unique skills are present in the "Marketing" department?
+
+// Expected Output:
+// // ("SEO", "Content Marketing", "Social Media", "Email Marketing", "Google Analytics", "Brand Strategy", "Copywriting", "Creative Writing", "Editing")
+// */
+
+let RequiredSkillsSummary = [];
+
+function KriteriaSkillsPerDivsi(NamaDivisi, DatabaseLooping) {
+  if (NamaDivisi === DatabaseLooping.department) {
+    RequiredSkillsSummary.push(`${NamaDivisi}`);
+    DatabaseLooping.skill.forEach(DBSkillsLoop => {
+      RequiredSkillsSummary.push(`- ${DBSkillsLoop}`)
+    });
+  };
+  RequiredSkillsSummary.push("");
+};
+
+for (let a = 0; a < employeeDB.length; a++) {
+  const LoopingEmployeeDBforQuiz4 = employeeDB[a];
+
+  KriteriaSkillsPerDivsi('Marketing', LoopingEmployeeDBforQuiz4);
+  KriteriaSkillsPerDivsi('Management', LoopingEmployeeDBforQuiz4);
+
+  console.log(RequiredSkillsSummary("\n"));
+};
+// katanya disini ada unexpected token '}' di 229, itu gimana ya mas? Terus kenapa Console.log warna Biru?
+
+// Quiz 5: For each employee, combine their Nama and contactInfo into a new object with properties Nama and contact. The contact property should include both email and phone.
+
+  // Expected Output:
+  // [
+  //   {
+  //     Nama: "Alice Johnson",
+  //     contact: {
+  //       email: "alice.johnson@example.com",
+  //       phone: "123-456-7890"
+  //     }
+  //   }
+
+let NewArrayofObjectQuiz5 = [];
+
+  for (let i = 0; i < employeeDB.length; i++) {
+    const EmployeeDBforQuiz5 = employeeDB[i];
+    const NewObjectQuiz5 = {
+      NamaEmployee: EmployeeDBforQuiz5.Nama,
+      contact: {
+        email: EmployeeDBforQuiz5.contactInfo.email,
+        phone: EmployeeDBforQuiz5.contactInfo.phone,
+      };
+    };
+    NewArrayofObjectQuiz5.push(NewObjectQuiz5);
+  };
 
 
 console.log(enterkosong);
@@ -225,10 +281,16 @@ console.log(enterkosong);
 console.log(EmployeeSelectedSkillsArray.join("\n"));
 console.log(enterkosong);
 
+console.log('Jawaban Quiz 5 :');
+console.log(enterkosong);
+console.log(NewArrayofObjectQuiz5);
+console.log(enterkosong);
 
 
 
-// Quiz 2: List the names of all employees who have the skill "JavaScript".
+
+
+// Quiz 2: List the Namas of all employees who have the skill "JavaScript".
 
 // Quiz 2
 
